@@ -4,6 +4,8 @@
  * 合集加的最后结尾大佬们脚本,删了互助码和互助池，gua佬没删，需要互助池的可以用他们合集，结尾已经放了链接
  * 看到AV脚本群里 Windstill大佬说青蛙大佬也加入了，说我恰饭，那个贡献者是原来青蛙库改的不是有意的
  * 想用谁的合集都可以，结尾有其他大佬们的合集或者看Oreomeow大佬整理的那些
+### [TG群](https://t.me/jdd_fruit)
+### [TG频道](https://t.me/jddfruit)
 ## 青龙拉取链接
 ``` 
 ql repo https://github.com/gys619/jdd.git "jd_|jx_|jddj_|gua_|jddj_|getJDCookie|wskey" "activity|backUp" "^jd[^_]|USER|utils|ZooFaker_Necklace|JDJRValidator_Pure|sign_graphics_validate|jddj_cookie|function|ql"
@@ -15,6 +17,17 @@ ql repo https://github.com/gys619/jdd.git "jd_|jx_|jddj_|gua_|jddj_|getJDCookie|
 [兜兜风评价助手1.6测试版](https://github.com/gys619/gys/blob/main/doudoufeng/%E5%85%9C%E5%85%9C%E9%A3%8E%E7%9A%84%E4%B8%9C%E4%BA%AC%E8%AF%84%E4%BB%B7%E5%8A%A9%E6%89%8B(%E6%B5%8B%E8%AF%95%E7%89%88)%201.7.exe?raw=true)
 
 [退会：JDMemberCloseAccount](https://github.com/yqchilde/JDMemberCloseAccount)
+
+拉不到库是因为版本号没了，需要删了重新拉一下，运行一下下面命令就好了，库不稳，见谅！
+
+docker exec -it 容器名 bash
+
+cd repo
+
+rm -rf gys619_jdd
+
+##### jd_lzdz1_xxxxx.js开卡脚本取消了，有需要用青蛙的开卡
+
 ### 脚本说明
 <details>
 <summary>查看</summary>

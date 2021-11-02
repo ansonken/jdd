@@ -1,9 +1,9 @@
 /*
 真·抢京豆
-更新时间：2021-7-25
+更新时间：2021-10-29
 备注：高速并发抢京豆，专治偷助力。设置环境变量angryBeanPins为指定账号助力，默认不助力。环境变量angryBeanMode可选值priority(优先模式)、smart(智能模式)和speed(极速模式)，默认speed模式。默认推送通知，如要屏蔽通知需将环境变量enableAngryBeanNotify的值设为false。
-TG学习交流群：https://t.me/cdles
-0 0 * * * https://raw.githubusercontent.com/cdle/jd_study/main/jd_angryBean.js
+
+0 0 * * * https://raw.githubusercontent.com/KingRan/JDJB/main/jd_angryBean.js
 */
 const $ = new Env("真·抢京豆")
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randomString(40)}`
@@ -19,6 +19,8 @@ var init = [];
 var mode = $.isNode() ? (process.env.angryBeanMode ? process.env.angryBeanMode : "speed") : "priority";
 
 !(async () => {
+  console.log('添加环境变量export angryBeanPins="pin1@pin2" 填写pin的值，多个用@链接。')
+  console.log('添加环境变量export angryBeanMode="priority" priority(优先模式)、smart(智能模式)和speed(极速模式)。')
      if ($.isNode() && !pins) {
           console.log("请在环境变量中填写需要助力的账号")
           return
