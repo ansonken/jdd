@@ -15,7 +15,7 @@ update_list.sh
 update_task.sh
 passerby-b.boxjs.json
 crontab.list
-
+jd_model
 jd_mf.js
 jd_jxSign.js
 jd_zhulima.js
@@ -98,7 +98,7 @@ jd_big_winner_Mod.js
 superbox.js
 jxhlk.py
 jd_tw.js
-
+jingsubang.js
 
 
 jd_anjia.js
