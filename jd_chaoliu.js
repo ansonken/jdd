@@ -1,5 +1,5 @@
-//路径 首页搜超级盒子，貌似没啥水
-const $ = new Env('超级盒子');
+//路径16.0:/#M7NeT5LW0xAqeo%，潮流生活新趋势，为你的选手投票，有机会抽奖获得大礼！
+const $ = new Env('潮流生活新趋势');
 
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
@@ -17,11 +17,12 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
-const JD_API_HOST = 'https://api.m.jd.com';
+
 let inviteCodes = []
 $.shareCodesArr = [];
 $.inviteId  = [];
 $.encryptPin=[]
+$.invite=[]
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
@@ -44,43 +45,40 @@ $.encryptPin=[]
 		$.index = i + 1;
 		$.isLogin = true;
 		$.nickName = '';
+    $.Bearer = '';
 		message = '';
 		console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
 		try {
-      if(i>0){
-        await get_superboxSupBoxHomePage($.encryptPin[i-1],"332")
-      }else{
-        await get_superboxSupBoxHomePage("","")
-      }
-			
-			
-				var conti = false
 
-        res = await apTaskList()
-        let taskDetail =[]
-        //console.log(`\n\nhome:${res.data }\n`)
-        for (var p=0;p<res.data.length;p++){	
-          //console.log(`\n\nhome:${res.data.length }\n`)
-          taskDetail = res.data[p]
-          //console.log(`\n\nhome:${taskDetail.id }\n`)
-          if(!taskDetail.taskFinished && taskDetail.id!=332){
-            console.log(`\n\n开始做:${taskDetail.taskShowTitle }任务\n`)
-            res1 = await getTaskDetail(taskDetail.id,taskDetail.taskType)
-            let task =[]
-           // console.log(`\n\nres:${res1.data.taskItemList}\n`)
-    				for (var m=0;m<res1.data.taskItemList.length;m++){
-              task = res1.data.taskItemList[m]	
-              
-						  
-						  apDoTask(taskDetail.id,taskDetail.taskType,task.itemId)
-              if(m>5){
-                break
-              }
-              await $.wait(1000)
-			    	}
 
-          }
+
+      //get_superboxSupBoxHomePage($.UserName)
+      requestAlgo()
+      await $.wait(9000)
+
+
+
+      // if(i>0){
+      //   help(6,invite[i-1])
+      // }else{
+      //   help(6,54554)
+      // }
+      
+       task=["1","2","3","4","5","7","8","9","10"]
+       for (let i = 0; i < task.length; i++) {
+         requestAlgo()
+         doTask(task[i])
+         await $.wait(5000)
+       }
+
+
+       for (var n=0;n<7;n++){
+        requestAlgo()
+        open()
       }
+      
+
+     
       // console.log(`\n******开始抽奖*********\n`);
 			// await $.wait(1000)
       // for (var n=0;n<5;n++){
@@ -93,19 +91,19 @@ $.encryptPin=[]
     }
   }
 
-  for (let i = 0; i < cookiesArr.length; i++) {
-    cookie = cookiesArr[i];
-    $.index = i + 1;
-    $.canHelp = true;
-    $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+  // for (let i = 0; i < cookiesArr.length; i++) {
+  //   cookie = cookiesArr[i];
+  //   $.index = i + 1;
+  //   $.canHelp = true;
+  //   $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
 
-    console.log(`账号 ${$.index} ${$.UserName} 开始抽奖`)
-    for (var n=0;n<5 && $.canHelp;n++){
-      superboxOrdinaryLottery()
-      await $.wait(5000)
-    }
-    //await $.wait(2000)
-  }
+  //   console.log(`账号 ${$.index} ${$.UserName} 开始抽奖`)
+  //   // for (var n=0;n<5 && $.canHelp;n++){
+  //   //   superboxOrdinaryLottery()
+  //   //   await $.wait(5000)
+  //   // }
+  //   //await $.wait(2000)
+  // }
 
 
 })()
@@ -125,10 +123,10 @@ $.encryptPin=[]
 
 
 
-function get_superboxSupBoxHomePage(encryptPin,taskId){
-  let linkId="DQFdr1ttvWWzn0wsQ7JDZQ"
-	let body={"taskId":taskId,"linkId":linkId,"encryptPin":encryptPin};
-	return new Promise((resolve) => {$.get(taskPostUrl2("superboxSupBoxHomePage",body), async (err, resp, data) => {
+function get_superboxSupBoxHomePage(openId){
+
+	let body={"openId":"jd_4e55cd03489a9","risk":false};
+	return new Promise((resolve) => {$.post(taskPostUrl("https://jd.xyani.com/user/login",body), async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -136,11 +134,12 @@ function get_superboxSupBoxHomePage(encryptPin,taskId){
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
-            //console.log(`\n\nhome:${JSON.stringify(data)}\n`)
-            if (data.code === 0) {
+            console.log(`\n\nbear:${JSON.stringify(data)}\n`)
+            if (data.code === 200) {
               if (data.data ) {
- 
-                $.encryptPin.push(data.data.encryptPin)
+                $.Bearer=   "Bearer " +  data.data.token
+                
+                $.invite.push(data.data.userId)
               } 
             } else {
               console.log(`\n\nencryptPin失败:${JSON.stringify(data)}\n`)
@@ -155,10 +154,11 @@ function get_superboxSupBoxHomePage(encryptPin,taskId){
     })
 	})
 }
-function apTaskList(){
-  let linkId="DQFdr1ttvWWzn0wsQ7JDZQ"
-	let body={"taskId":"","linkId":linkId,"encryptPin":""};
-	return new Promise((resolve) => {$.post(taskPostUrl("apTaskList",body), async (err, resp, data) => {
+
+function doTask(taskId){
+
+	let body={"taskId":taskId};
+	return new Promise((resolve) => {$.post(taskPostUrl("https://jd.xyani.com/task/accomplish",body), async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -166,11 +166,45 @@ function apTaskList(){
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
-            //console.log(`\n\list:${JSON.stringify(data)}\n`)
-            if (data.code === 0) {
-              
+            //console.log(`\n\nhome:${JSON.stringify(data)}\n`)
+            if (data.code === 200) {
+              if (data.data ) {
+                console.log(`\n\n任务:${taskId}${data.data.name}已完成\n`)
+
+              } 
             } else {
-              console.log(`\n\nsecretp失败:${JSON.stringify(data)}\n`)
+              console.log(`\n\nencryptPin失败:${JSON.stringify(data)}\n`)
+            }
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve(data);
+      }
+    })
+	})
+}
+
+function help(taskId,inviter){
+
+	let body={"taskId":taskId,"inviter":inviter};
+	return new Promise((resolve) => {$.post(taskPostUrl("https://jd.xyani.com/task/invite",body), async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
+        } else {
+          if (safeGet(data)) {
+            data = JSON.parse(data);
+            //console.log(`\n\nhome:${JSON.stringify(data)}\n`)
+            if (data.code === 200) {
+              if (data.data ) {
+
+
+              } 
+            } else {
+              console.log(`\n\nencryptPin失败:${JSON.stringify(data)}\n`)
             }
           }
         }
@@ -184,154 +218,197 @@ function apTaskList(){
 }
 
 
-function getTaskDetail(taskId,taskType){
-  let linkId="DQFdr1ttvWWzn0wsQ7JDZQ"
-	let body={"taskId":taskId,"taskType":taskType,"linkId":linkId,"channel":4,"encryptPin":""};
-	
-	return new Promise((resolve) => {
-		$.post(taskPostUrl("apTaskDetail",body), async (err, resp, data) => {
+async function doTask(taskId) {
+
+  const options = {
+    "url": `https://jd.xyani.com/task/accomplish`,
+    'headers': {
+      'Host': 'jd.xyani.com',
+      'Origin': 'https://prodev.m.jd.com',
+      'Sec-Fetch-Mode': 'cors',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Requested-With': 'com.jingdong.app.mall',
+      'Sec-Fetch-Site': 'cross-site',
+      'Accept':'application/json, text/javascript, */*; q=0.01',
+      'Authorization': $.Bearer,
+      "User-Agent": $.UA,
+      "Referer": "https://prodev.m.jd.com/mall/active/2DWXWszt6VvNx4HDctSa4TA7rHh6/index.html",
+      'Accept-Language': 'zh-cn',
+      'Accept-Encoding': 'gzip, deflate, br',
+    },
+    'body': JSON.stringify({
+      "taskId":taskId
+    })
+  }
+  new Promise(async resolve => {
+    $.post(options, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
+          console.log(`request_algo 签名参数API请求失败，请检查网路重试`)
         } else {
-          if (safeGet(data)) {
+          if (data) {
             data = JSON.parse(data);
-           // console.log(`\n\ndetail:${JSON.stringify(data)}\n`)
-            if (data.code === 0) {
+            console.log(`\n\nhome:${JSON.stringify(data)}\n`)
+            if (data['code'] === 200) {
+              $.Bearer=   "Bearer " +  data.data.token
+                
+                $.invite.push(data.data.userId)
               
-					resolve(data)
-              } 
             } else {
-              console.log(`\n\nsecretp失败:${JSON.stringify(data)}\n`)
+              // console.log(`fp: ${$.fingerprint}`)
+              console.log('request_algo 签名参数API请求失败:')
             }
+          } else {
+            console.log(`京东服务器返回空数据`)
           }
-        
+        }
       } catch (e) {
         $.logErr(e, resp)
       } finally {
-        resolve(data);
+        resolve();
       }
     })
-	})
+  })
 }
 
-function apDoTask(taskId,taskType,itemId){
-  let linkId="DQFdr1ttvWWzn0wsQ7JDZQ"
-	let body={"taskId":taskId,"taskType":taskType,"itemId":itemId,"channel":4,"linkId":linkId,"encryptPin":""};
-	
-	return new Promise((resolve) => {
-		$.post(taskPostUrl("apDoTask",body), async (err, resp, data) => {
-      try {
-        if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
-        } else {
-          if (safeGet(data)) {
-            data = JSON.parse(data);
-            //console.log(`\n\ndotask:${JSON.stringify(data)}\n`)
-            if (data.code === 0 && data.data.finished) {
-              console.log(`\n\n任务完成\n`)
+async function open() {
 
-
-              resolve(data.data)
-
-              } 
-            } else {
-              console.log(`\n\nsecretp失败:${JSON.stringify(data)}\n`)
-            }
-          }
-        
-      } catch (e) {
-        $.logErr(e, resp)
-      } finally {
-        resolve(data);
-      }
-    })
-	})
-}
-
-function superboxOrdinaryLottery(){
-  let linkId="DQFdr1ttvWWzn0wsQ7JDZQ"
-	let body={"taskId":"","linkId":linkId,"encryptPin":""};
-	
-	return new Promise((resolve) => {
-		$.get(taskPostUrl2("superboxOrdinaryLottery",body), async (err, resp, data) => {
-      try {
-        if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
-        } else {
-          if (safeGet(data)) {
-            data = JSON.parse(data);
-
-            if (data.code === 0) {
-              if(data.data.rewardType ===0){
-                console.log(`\n\nddo狗毛一根\n`)
-              }else if(data.data.rewardType ===2){
-                console.log(`\n\n红包${data.data.discount}元\n`)
-
-              }else{
-                console.log(`\n\n不知道是啥，去活动看看\n`)
-
-              }
-
-              resolve(data.data)
-
-              }else{
-                console.log(`\n\n${data.errMsg}\n`)
-                $.canHelp = false;
-              }
-            } else {
-              console.log(`\n\nsecretp失败:${JSON.stringify(data)}\n`)
-            }
-          }
-        
-      } catch (e) {
-        $.logErr(e, resp)
-      } finally {
-        resolve(data);
-      }
-    })
-	})
-}
-
-
-
-
-
-
-function taskPostUrl(functionId,body) {
-  return {
-    url: `${JD_API_HOST}`,
-    body: `functionId=${functionId}&body=${escape(JSON.stringify(body))}&appid=activities_platform&_t=${Date.now() + 2}`,
-    headers: {
-      'Cookie': cookie,
-      'Host': 'api.m.jd.com',
-      'Connection': 'keep-alive',
-      'Content-Type': 'application/x-www-form-urlencoded',
+  const options = {
+    "url": `https://jd.xyani.com/user/draw`,
+    'headers': {
+      'Host': 'jd.xyani.com',
+      'Origin': 'https://prodev.m.jd.com',
+      'Sec-Fetch-Mode': 'cors',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Requested-With': 'com.jingdong.app.mall',
+      'Sec-Fetch-Site': 'cross-site',
+      'Accept':'application/json, text/javascript, */*; q=0.01',
+      'Authorization': $.Bearer,
       "User-Agent": $.UA,
-      "Referer": "https://pro.m.jd.com/mall/active/3z9BVbnAa1sVy88yEyKdp9wcWZ7Z/index.html",
+      "Referer": "https://prodev.m.jd.com/mall/active/2DWXWszt6VvNx4HDctSa4TA7rHh6/index.html",
+      'Accept-Language': 'zh-cn',
+      'Accept-Encoding': 'gzip, deflate, br',
+    },
+    'body': JSON.stringify({
+      
+    })
+  }
+  new Promise(async resolve => {
+    $.post(options, (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`request_algo 签名参数API请求失败，请检查网路重试`)
+        } else {
+          if (data) {
+            data = JSON.parse(data);
+            console.log(`\n\nhome:${JSON.stringify(data)}\n`)
+            if (data['code'] === 200) {
+              if(data.data && data.data.award){
+                if(data.data.award.skuId===1){
+                  console.log(`\n\n获得京豆:${data.data.award.amount}个\n`)
+
+                }
+
+
+              }
+              console.log(`\n\nhome:${JSON.stringify(data)}\n`)
+              
+            } else {
+              // console.log(`fp: ${$.fingerprint}`)
+              console.log('request_algo 签名参数API请求失败:')
+            }
+          } else {
+            console.log(`京东服务器返回空数据`)
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve();
+      }
+    })
+  })
+}
+
+async function requestAlgo() {
+
+  const options = {
+    "url": `https://jd.xyani.com/user/login`,
+    'headers': {
+      'Host': 'jd.xyani.com',
+      'Origin': 'https://prodev.m.jd.com',
+      'Sec-Fetch-Mode': 'cors',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Requested-With': 'com.jingdong.app.mall',
+      'Sec-Fetch-Site': 'cross-site',
+      'Accept':'application/json, text/javascript, */*; q=0.01',
+      'Authorization': $.Bearer,
+      "User-Agent": $.UA,
+      "Referer": "https://prodev.m.jd.com/mall/active/2DWXWszt6VvNx4HDctSa4TA7rHh6/index.html",
+      'Accept-Language': 'zh-cn',
+      'Accept-Encoding': 'gzip, deflate, br',
+    },
+    'body': JSON.stringify({
+      "openId":$.UserName,
+      "risk":false
+    })
+  }
+  new Promise(async resolve => {
+    $.post(options, (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`request_algo 签名参数API请求失败，请检查网路重试`)
+        } else {
+          if (data) {
+            data = JSON.parse(data);
+            console.log(`\n\nhome:${JSON.stringify(data)}\n`)
+            if (data['code'] === 200) {
+              $.Bearer=   "Bearer " +  data.data.token
+                
+                $.invite.push(data.data.userId)
+              
+            } else {
+              // console.log(`fp: ${$.fingerprint}`)
+              console.log('request_algo 签名参数API请求失败:')
+            }
+          } else {
+            console.log(`京东服务器返回空数据`)
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve();
+      }
+    })
+  })
+}
+
+function taskPostUrl(url1,body) {
+  return {
+    url: url1+'',
+    //body: `body=${escape(JSON.stringify(body))}`,
+    body: escape(JSON.stringify(body)),
+    headers: {
+      'Host': 'jd.xyani.com',
+      'Origin': 'https://prodev.m.jd.com',
+      'Sec-Fetch-Mode': 'cors',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Requested-With': 'com.jingdong.app.mall',
+      'Sec-Fetch-Site': 'cross-site',
+      'Accept':'application/json, text/javascript, */*; q=0.01',
+      'Authorization': $.Bearer,
+      "User-Agent": $.UA,
+      "Referer": "https://prodev.m.jd.com/mall/active/2DWXWszt6VvNx4HDctSa4TA7rHh6/index.html?a=1&openType=1&inviter=54554&tttparams=LvY6i009eyJnTGF0IjoiMzIuMDE0MjM5IiwiZ0xuZyI6IjEyMC4yNjMyMzMifQ8",
       'Accept-Language': 'zh-cn',
       'Accept-Encoding': 'gzip, deflate, br',
     }
   }
 }
-function taskPostUrl2(functionId,body) {
-  return {
-    url: `${JD_API_HOST}?functionId=${functionId}&body=${JSON.stringify(body)}&appid=activities_platform&_t=${Date.now() + 2}`,
-    headers: {
-      'Cookie': cookie,
-      'Host': 'api.m.jd.com',
-      'Connection': 'keep-alive',
-      'Content-Type': 'application/x-www-form-urlencoded',
-      "User-Agent": $.UA,
-      "Referer": "https://pro.m.jd.com/mall/active/3z9BVbnAa1sVy88yEyKdp9wcWZ7Z/index.html",
-      'Accept-Language': 'zh-cn',
-      'Accept-Encoding': 'gzip, deflate, br',
-    }
-  }
-}
+
 
 
 
