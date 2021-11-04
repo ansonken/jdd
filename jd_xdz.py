@@ -32,10 +32,7 @@ def get_pin(cookie):
 
 
 # 随机ua
-def ua():
-    sys.path.append(os.path.abspath('.'))
-    try:
-        from jdEnv import USER_AGENTS as a
+ 
     except:
         a='jdpingou;android;5.5.0;11;network/wifi;model/M2102K1C;appBuild/18299;partner/lcjx11;session/110;pap/JA2019_3111789;brand/Xiaomi;Mozilla/5.0 (Linux; Android 11; M2102K1C Build/RKQ1.201112.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/92.0.4515.159 Mobile Safari/537.36'
     return a
