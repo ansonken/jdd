@@ -20,7 +20,7 @@ if ($.isNode()) {
     });
     if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => { };
 } else {
-    cookiesArr = [
+    cookiesArr = [  
         $.getdata("CookieJD"),
         $.getdata("CookieJD2"),
         ...$.toObj($.getdata("CookiesJD") || "[]").map((item) => item.cookie)].filter((item) => !!item);
@@ -49,7 +49,8 @@ if ($.isNode()) {
         res = await UserSignNew();
         await drawUserTask();
     }
-    const author = Math.random() > 0.5 ? '123' : 'ZXX2021'
+    shareCodes = shareCodes.filter(code => code)
+    const author = Math.random() > 0.5 ? '123' : '123'
     await getShareCode('nnfls.json',author,3,true)
     shareCodes = [...new Set([...shareCodes, ...($.shareCode || [])])];
     if (shareCodes.length > 0) {
@@ -81,7 +82,7 @@ if ($.isNode()) {
 function getShareCode(name,author = '123',num = -1,shuffle=false) {
   return new Promise(resolve => {
     $.get({
-      url: `https:///${author}/updateTeam/main/shareCodes/${name}`,
+      url: `https://raw.fastgit.org/${author}/updateTeam/main/shareCodes/${name}`,
       headers: {
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
       }
