@@ -1,3 +1,7 @@
+'''
+cron: 59 23 * * * jd_jxcfd_cash111.py
+new Env('京喜财富岛兑换111红包');
+'''
 import os,re,time,asyncio
 import sys
 sys.path.append(os.path.abspath('../../tmp'))
