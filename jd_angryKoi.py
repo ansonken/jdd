@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*
+'''
 # 愤怒的锦鲤
 # 入口>京东首页>领券>锦鲤红包
 # 环境变量JD_COOKIE，多账号用&分割
@@ -6,7 +9,9 @@
 # export JD_COOKIE="第1个cookie&第2个cookie"
 # export kois=" 第1个cookie的pin & 第2个cookie的pin "
 # 11/4 11:23 增加自动开红包
-
+cron: 0 0 * * *
+new Env('锦鲤红包');
+'''
 
 import os,json,random,time,re,string,functools,asyncio
 import sys
@@ -112,7 +117,7 @@ cookie_list=Judge_env().main_run()
 class Msg(object):
     def getsendNotify(self, a=1):
         try:
-            url = 'https://ghproxy.com/https://raw.githubusercontent.com/wuye999/myScripts/main/sendNotify.py'
+            url = 'https://gitee.com/123521/JD-Scripts/raw/master/sendNotify.js'
             response = requests.get(url,timeout=3)
             with open('sendNotify.py', "w+", encoding="utf-8") as f:
                 f.write(response.text)
@@ -314,9 +319,6 @@ def main():
     msg(f'====================共{len(cookie_list)}京东个账号Cookie=========\n')
 
     asyncio.run(asyncmain())
-    
-    msg('作者：wuye9999\n')
-    msg('地址:https://github.com/wuye999/myScripts')
 
     if run_send=='yes':
         send('愤怒的锦鲤')   # 通知服务
@@ -324,6 +326,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
 
