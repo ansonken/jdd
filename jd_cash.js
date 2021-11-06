@@ -49,11 +49,11 @@ let allMessage = '';
     return;
   }
   await requireConfig()
-  $.authorCode = await getAuthorShareCode('https://raw.githubusercontent.com/111111/updateTeam/master/shareCodes/jd_updateCash.json')
+  $.authorCode = await getAuthorShareCode('https://raw.githubusercontent.com/123/updateTeam/master/shareCodes/jd_updateCash.json')
   if (!$.authorCode) {
-    $.http.get({url: 'https://purge.jsdelivr.net/gh/111111/updateTeam@master/shareCodes/jd_updateCash.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
+    $.http.get({url: 'https://purge.jsdelivr.net/gh/123/updateTeam@master/shareCodes/jd_updateCash.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
     await $.wait(1000)
-    $.authorCode = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/111111/updateTeam@master/shareCodes/jd_updateCash.json') || []
+    $.authorCode = await getAuthorShareCode('https://cdn.jsdelivr.net/gh/123/updateTeam@master/shareCodes/jd_updateCash.json') || []
   }
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
@@ -490,7 +490,7 @@ function showMsg() {
 function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
-    $.get({url: `http://111111.fun/api/v1/jd/jdcash/read/${randomCount}/`, 'timeout': 30000}, (err, resp, data) => {
+    $.get({url: `123`, 'timeout': 30000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
