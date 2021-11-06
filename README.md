@@ -308,4 +308,4 @@ ql repo https://github.com/panghu999/panghu.git "jd_"
 *  [@Aaron-lv](https://github.com/Aaron-lv/sync)
 *  [@zzfiu](https://github.com/zzfiu/jd.git)
 *  [@zero205](https://github.com/zero205/JD_tencent_scf)
-*  [wuye999](https://github.com/wuye999/myScripts)
+*  [@wuye999](https://github.com/wuye999/myScripts)
