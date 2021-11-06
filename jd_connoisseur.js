@@ -505,10 +505,10 @@ function getSign(functionid, body, uuid) {
       "client":"apple",
       "clientVersion":"10.1.0"
     }
-    let HostArr = ['jdsign.cf', 'signer.nz.lu']
+    let HostArr = ['jdsign.cf', 'signer.111111']
     let Host = HostArr[Math.floor((Math.random() * HostArr.length))]
     let options = {
-      url: `https://cdn.nz.lu/ddo`,
+      url: `https://cdn.111111/ddo`,
       body: JSON.stringify(data),
       headers: {
         Host,
