@@ -2,7 +2,7 @@
 双11特务
 APP首页下滑,任务，互助
 cron 10 9,13,15,16,19,20 2-8 11 * jd_tewu.js
-https://raw.githubusercontent.com/123/jd/main/scripts/jd_superBrand.js
+https://raw.githubusercontent.com/star261/jd/main/scripts/jd_superBrand.js
 
 */
 const $ = new Env('双11特务');
@@ -187,7 +187,7 @@ async function main(cookie) {
                         await $.wait(3000);
                     }
                 }
-            }else if(oneTask.assignmentName === '去首页下拉参与小游戏'){
+            }else if(oneTask.assignmentName.indexOf('小游戏') !== -1){
                 for (let j = 0; j < signList.length; j++) {
                     if(signList[j].status === 1){
                         console.log(`任务：${oneTask.assignmentName},去执行,请稍稍`);
