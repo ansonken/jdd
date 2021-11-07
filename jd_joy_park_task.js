@@ -40,9 +40,7 @@ $.invitePin = [
   "7zG4VHS99AUEoX1mQTkC9Q",
   "BbsjCRrQudIL06kRvqmVln053h03GiApg7HN_Vhy_Og",
   "sAxL-dc5T6lS6wtKqP6SlA",
-  "bcVxt4PbZdbX7tiT1Q_ubg",
-  "_p6gjdwSemuAldidzb9l3xr4PUYxQ0IiGIpDIekNW0w",
-  "JT2qgWwSZ4TeP7tuwhgUDw"
+  "bcVxt4PbZdbX7tiT1Q_ubg"
 ]
 const JD_API_HOST = `https://api.m.jd.com/client.action`;
 message = ""
@@ -68,7 +66,7 @@ message = ""
       //     $.kgw_invitePin = ["7zG4VHS99AUEoX1mQTkC9Q"][Math.floor((Math.random() * 1))];
       //     let resp = await getJoyBaseInfo(undefined, 2, $.kgw_invitePin);
       //     if (resp.data && resp.data.helpState && resp.data.helpState === 1) {
-      //       $.log("帮【123】开工位成功，感谢！\n");
+      //       $.log("帮【zero205】开工位成功，感谢！\n");
       //     } else if (resp.data && resp.data.helpState && resp.data.helpState === 3) {
       //       $.log("你不是新用户！跳过开工位助力\n");
       //       break
@@ -172,7 +170,7 @@ message = ""
     }
   }
 
-  $.log("\n======汪汪乐园开始内部互助======\n======有剩余助力次数则帮123助力======\n")
+  $.log("\n======汪汪乐园开始内部互助======\n======有剩余助力次数则帮zero205助力======\n")
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
     if (cookie) {
