@@ -475,7 +475,7 @@ export angryBeanPins="$(echo "$JD_COOKIE" | sed "s/&/ /g; s/\S*pt_pin=\([^;]\+\)
 export angryBeanMode="priority"
 export enableAngryBeanNotify="true"
 
-# 111111 环境变量
+# star261 环境变量
 ## 1、京喜工厂开团
 ### 默认第一个CK开团，例：若OPEN_DREAMFACTORY_TUAN="2,3"，则第2，第3个CK开团，其他账号参加第2，第3个CK开的团。每执行一次，会领取上一次成团的奖励和新开一次团，每天执行4次能开完3次团和领取3次团的奖励。一个账号能参团一次，一个账号一天能开三次团，请根据自己的情况设置需要开团的CK，一般至少5个CK能成团
 ### 助力规则：开团账号开团，其他账号自动参团。 例：有A,B,C账号，A，B账号开团，则B，C会参加A的团，A会参加B的团。账号内互助之后，开团账号若有剩下参团次数，会尝试加入作者团
@@ -497,7 +497,7 @@ export CFD_CASH_TOKEN='[{"strPgtimestamp":"1626623544085","strPhoneID":"878e21db
 ## 3、宠汪汪等提示预存验证码数量不足
 export validate_num="" ##你需要的数值
 
-# 111111 环境变量
+# Aaron-lv 环境变量
 ## 1、京东健康社区京豆兑换
 export JD_HEALTH_REWARD_NAME="20" ##只能兑换京豆，填写纯数字20 10 5 3
 
