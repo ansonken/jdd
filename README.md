@@ -44,7 +44,7 @@ rm -rf gys619_jdd
     ```
 * 去掉多余的双十一红包脚本，自己再config里加export FLCODE=''，否则不能跑
 * 内部互助可以把code.sh和task_before.sh放config目录下，并添加一个code的定时任务，命令:task /ql/config/code.sh
-* 加KingRan大佬仓库
+* 加111111大佬仓库
 * 最新面板2.9.7或者新版拉不到可以进入容器
     ```
     docker exec -it 容器名 bash
@@ -139,13 +139,13 @@ rm -rf gys619_jdd
   ```
   ql repo https://github.com/he1pu/JDHelp.git "jd_|jx_|getJDCookie" "Coupon|update" "^jd[^_]|USER|^sign|^ZooFaker|utils"
   ```
-  3. `shufflewzc`
+  3. `111111`
   ```
-  ql repo https://github.com/shufflewzc/faker2.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp" "^jd[^_]|USER|utils|^JS|^TS|^JDJRValidator_Pure|^ZooFaker|^sign"
+  ql repo https://github.com/111111/faker2.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp" "^jd[^_]|USER|utils|^JS|^TS|^JDJRValidator_Pure|^ZooFaker|^sign"
   ```
-  4. `Aaron-lv`
+  4. `111111`
   ```
-  ql repo https://github.com/Aaron-lv/sync.git "jd_|jx_|getJDCookie" "activity|backUp|Coupon" "^jd[^_]|USER|utils" "jd_scripts"
+  ql repo https://github.com/111111/sync.git "jd_|jx_|getJDCookie" "activity|backUp|Coupon" "^jd[^_]|USER|utils" "jd_scripts"
   ```
   5. `panghu999`（无维护）
   ```
@@ -196,9 +196,9 @@ ql repo https://github.com/photonmang/quantumultX.git "JDscripts"
 ```
 ql repo https://github.com/jiulan/platypus.git "jd_|jx_" "" "overdue" "main"
 ```
-- `star261`
+- `111111`
 ```
-ql repo https://github.com/star261/jd.git "jd_|star" "" "code" "main"
+ql repo https://github.com/111111/jd.git "jd_|star" "" "code" "main"
 ```
 - `Wenmoux`
 ```
@@ -229,15 +229,15 @@ ql raw https://raw.githubusercontent.com/curtinlv/JD-Script/main/getFollowGifts/
 ql raw https://raw.githubusercontent.com/chiupam/JD_Diy/master/pys/activeId.py
 ```
 
-> `Aaron-lv`+
+> `111111`+
 
 >> 财富岛
 ```
-ql raw https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_cfd.js
+ql raw https://raw.githubusercontent.com/111111/sync/jd_scripts/jd_cfd.js
 ```
 or
 ```
-ql repo https://github.com/Aaron-lv/sync.git "jd_cfd" "" "" "jd_scripts"
+ql repo https://github.com/111111/sync.git "jd_cfd" "" "" "jd_scripts"
 ```
 
 > `Wenmoux`+
@@ -295,8 +295,8 @@ ql repo https://github.com/panghu999/panghu.git "jd_"
 ### 致谢
 * [@kangwenhang](https://github.com/kangwenhang)
 * [@smiek2221](https://github.com/smiek2221/scripts.git)
-* [@yuannian1112](https://github.com/yuannian1112/jd_scripts.git)
-*  [@shufflewzc](https://github.com/shufflewzc/faker2.git)
+* [@111111](https://github.com/111111/jd_scripts.git)
+*  [@111111](https://github.com/111111/faker2.git)
 *  [@passerby-b](https://github.com/passerby-b/JDDJ.git)
 *  [@he1pu](https://github.com/he1pu/JDHelp.git)
 *  [@airacg](https://github.com/airacg/jd_task.git)
@@ -304,8 +304,8 @@ ql repo https://github.com/panghu999/panghu.git "jd_"
 *  [@Zy143L](https://github.com/Zy143L/wskey.git)
 *  [@X1a0He](https://github.com/X1a0He/jd_scripts_fixed)
 *  [@AlterGu](https://github.com/AlterGu/qinglong_note)
-*  [@KingRan](https://github.com/KingRan/JD-Scripts)
-*  [@Aaron-lv](https://github.com/Aaron-lv/sync)
+*  [@111111](https://github.com/111111/JD-Scripts)
+*  [@111111](https://github.com/111111/sync)
 *  [@zzfiu](https://github.com/zzfiu/jd.git)
-*  [@zero205](https://github.com/zero205/JD_tencent_scf)
+*  [@111111](https://github.com/111111/JD_tencent_scf)
 *  [@wuye999](https://github.com/wuye999/myScripts)
