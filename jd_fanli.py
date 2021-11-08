@@ -1,11 +1,11 @@
 """
 const $ = new Env("京东饭粒");
 京东饭粒任务
-活动入口：https://u.jd.com/ywEoeYu
-每天60豆
+活动入口：https://u.jd.com/ytWx4w0
+每天90豆小毛，爱要不要
 
 cron:
-47 7,17 * * * jd_fanli.py
+46 0 * * * jd_fanli.py
 """
 
 import sys
@@ -95,13 +95,7 @@ def saveTaskRecord1(ck, taskId, uid, tt):
 
 
 if __name__ == '__main__':
-    printf("🔔京东饭粒, 开始!\n\n活动入口：https://u.jd.com/ywEoeYu\n\n")
-    try:
-        cks = os.environ["JD_COOKIE"].split("&")
-    except:
-        f = open("/jd/config/config.sh", "r", encoding='utf-8')
-        cks = re.findall(r'Cookie[0-9]*="(pt_key=.*?;pt_pin=.*?;)"', f.read())
-        f.close()     
+    cks = os.environ["JD_COOKIE"].split("&")
     for ck in cks:
         ptpin = re.findall(r"pt_pin=(.*?);", ck)[0]
         printf("--------开始京东账号" + ptpin + "--------")
