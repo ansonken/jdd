@@ -89,7 +89,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
             cookie = cookiesArr[i];
             $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
             $.canHelp = true;
-            console.log(`\n${$.UserName} 去助力【888888】\n`)
+            console.log(`\n${$.UserName} 去助力【111111】\n`)
             for (let j = 0; j < $.authorCode.length && $.canHelp; j++) {
                 $.item = $.authorCode[j];
                 await doHelp($.item)
@@ -327,7 +327,7 @@ function openCard() {
 function getAuthorShareCode() {
     return new Promise(resolve => {
         $.get({
-            url: "https://raw.fastgit.org/888888/updateTeam/main/shareCodes/jika.json",
+            url: "https://raw.fastgit.org/111111/updateTeam/main/shareCodes/jika.json",
             headers: {
                 "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
             }
