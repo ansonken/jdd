@@ -1,6 +1,6 @@
 /**
  惊喜牧场
- cron 23 0-23/2 * * * https://raw.githubusercontent.com/star261/jd/main/scripts/jd_jxmc.js
+ cron 23 0-23/2 * * * https://raw.githubusercontent.com/333333/jd/main/scripts/jd_jxmc.js
  环境变量：JX_USER_AGENT, 惊喜APP的UA。领取助力任务奖励需要惊喜APP的UA,有能力的可以填上自己的UA,默认生成随机UA
  环境变量：BYTYPE,购买小鸡品种，默认不购买,(ps:暂时不知道买哪个好)
  BYTYPE="1",购买小黄鸡，BYTYPE="2",购买辣子鸡，BYTYPE="3",购买椰子鸡,BYTYPE="4",购买猪肚鸡,BYTYPE="999",能买哪只买哪只,BYTYPE="888",不购买小鸡
@@ -131,7 +131,7 @@ if ($.isNode()) {
 function getShareCode(name) {
   return new Promise(resolve => {
     $.get({
-      url: "https://raw.fastgit.org/zero205/updateTeam/main/shareCodes/"+name,
+      url: "https://raw.fastgit.org/888888/updateTeam/main/shareCodes/"+name,
       headers: {
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
       }
@@ -141,7 +141,7 @@ function getShareCode(name) {
           console.log(`${JSON.stringify(err)}`);
           console.log(`${$.name} API请求失败，请检查网路重试`);
         } else {
-          console.log(`优先账号内部互助，有剩余助力次数再帮【zero205】助力`);
+          console.log(`优先账号内部互助，有剩余助力次数再帮【888888】助力`);
           $.shareCode = JSON.parse(data);
         }
       } catch (e) {

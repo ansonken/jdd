@@ -189,7 +189,7 @@ function requireConfig() {
 
     try {
       let options = {
-        "url": `https://cdn.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jxnc.txt`,
+        "url": `https://cdn.jsdelivr.net/gh/222222/updateTeam@master/shareCodes/jxnc.txt`,
         "headers": {
           "Accept": "application/json,text/plain, */*",
           "Content-Type": "application/x-www-form-urlencoded",
@@ -497,7 +497,7 @@ function submitInviteId(userName) {
     try {
       $.post(
           {
-            url: `https://api.ninesix.cc/api/jx-nc/${$.info.smp}/${encodeURIComponent(userName)}?active=${$.info.active}&joinnum=${$.info.joinnum}`,
+            url: `https://api.11111116.cc/api/jx-nc/${$.info.smp}/${encodeURIComponent(userName)}?active=${$.info.active}&joinnum=${$.info.joinnum}`,
             timeout: 10000
           },
           (err, resp, _data) => {
@@ -526,7 +526,7 @@ function getAssistUser() {
   return new Promise(resolve => {
     try {
       $.get({
-        url: `https://api.ninesix.cc/api/jx-nc?active=${$.info.active}`,
+        url: `https://api.11111116.cc/api/jx-nc?active=${$.info.active}`,
         timeout: 10000
       }, async (err, resp, _data) => {
         try {

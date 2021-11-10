@@ -28,7 +28,7 @@ All变量适用
 ============Quantumultx===============
 [task_local]
 #5.18~12.31 大牌联合 瓜分京豆
-47 9 * 9-12 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard39.js, tag=5.18~12.31 大牌联合 瓜分京豆, enabled=true
+47 9 * 9-12 * https://raw.githubusercontent.com/11111120/scripts/master/gua_opencard39.js, tag=5.18~12.31 大牌联合 瓜分京豆, enabled=true
 
 
 */

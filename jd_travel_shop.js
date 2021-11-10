@@ -1,6 +1,6 @@
 /*
 双11环游记大富翁
-cron 0 2 1-11 11 * https://raw.githubusercontent.com/star261/jd/main/scripts/jd_travel_shop.js
+cron 0 2 1-11 11 * https://raw.githubusercontent.com/333333/jd/main/scripts/jd_travel_shop.js
 脚本跑起来时间比较久，没有卡开，有加购
 * */
 const $ = new Env('双11环游记大富翁');

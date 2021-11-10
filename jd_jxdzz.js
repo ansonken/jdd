@@ -1,18 +1,18 @@
 /*
-tgchannel：https://t.me/Ariszy8028
-github：https://github.com/Ariszy/Private-Script
-boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
+tgchannel：https://t.me/111111198028
+github：https://github.com/11111119/Private-Script
+boxjs：https://raw.githubusercontent.com/11111119/Private-Script/master/11111119.boxjs.json
 
 [task_local]
 #惊喜大作战
-50 1 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_jxdzz.js, tag= 惊喜大作战
+50 1 * * * https://raw.githubusercontent.com/11111119/Private-Script/master/JD/zy_jxdzz.js, tag= 惊喜大作战
 ================Loon==============
 [Script]
-cron "50 1 * * *" script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_jxdzz.js,tag= 惊喜大作战
+cron "50 1 * * *" script-path= https://raw.githubusercontent.com/11111119/Private-Script/master/JD/zy_jxdzz.js,tag= 惊喜大作战
 ===============Surge=================
-惊喜大作战 = type=cron,cronexp="50 1 * * *",wake-system=1,timeout=3600,script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_jxdzz.js
+惊喜大作战 = type=cron,cronexp="50 1 * * *",wake-system=1,timeout=3600,script-path= https://raw.githubusercontent.com/11111119/Private-Script/master/JD/zy_jxdzz.js
 ============小火箭=========
-惊喜大作战 = type=cron,script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_jxdzz.js, cronexpr="50 1 * * *", timeout=3600, enable=true
+惊喜大作战 = type=cron,script-path= https://raw.githubusercontent.com/11111119/Private-Script/master/JD/zy_jxdzz.js, cronexpr="50 1 * * *", timeout=3600, enable=true
 */
 const $ = new Env('惊喜大作战')
 const notify = $.isNode() ?require('./sendNotify') : '';
@@ -72,7 +72,7 @@ if ($.isNode()) {
             }
        await gethelpcode()
        await getlist()
-       await Ariszy()
+       await 11111119()
        await zy()
        await Zy()
    }
@@ -197,7 +197,7 @@ async function getLottery(){
     })
    })
   }
-async function Ariszy(){
+async function 11111119(){
   for(let j = 0; j < listtokenArr.length; j++){
     token = list2tokenArr[j]
     taskid = listtokenArr[j].match(/\d+/)

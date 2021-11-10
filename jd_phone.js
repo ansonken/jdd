@@ -9,7 +9,7 @@ Phone狂制噪吧 [jd_phone.js]
 ============Quantumultx===============
 [task_local]
 #Phone狂制噪吧
-7 0,12 * * * https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_phone.js, tag=Phone狂制噪吧, enabled=true
+7 0,12 * * * https://raw.githubusercontent.com/11111115/JDHelp/main/jd_phone.js, tag=Phone狂制噪吧, enabled=true
 */
 const $ = new Env('Phone狂制噪吧');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';

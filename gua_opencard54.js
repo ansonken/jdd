@@ -36,7 +36,7 @@ All变量适用
 ============Quantumultx===============
 [task_local]
 #10.31~11.13 跨界宠粉  豪礼放送
-47 5 1-13 10 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard54.js, tag=10.31~11.13 跨界宠粉  豪礼放送, enabled=true
+47 5 1-13 10 * https://raw.githubusercontent.com/11111120/scripts/master/gua_opencard54.js, tag=10.31~11.13 跨界宠粉  豪礼放送, enabled=true
 
 */
 let guaopencard_addSku = "false"
@@ -225,14 +225,14 @@ async function run() {
         flag = true
         let goodsArr = []
         if(cleanCart){
-          goodsArr = await cleanCart.clean(cookie,'https://jd.smiek.tk/jdcleancatr_21102717','')
+          goodsArr = await cleanCart.clean(cookie,'https://jd.11111118/jdcleancatr_21102717','')
           await $.wait(parseInt(Math.random() * 1000 + 4000, 10))
         }
         await takePostRequest('addCart');
         await $.wait(parseInt(Math.random() * 2000 + 4000, 10))
         if(cleanCart && goodsArr !== false){
           // await $.wait(parseInt(Math.random() * 1000 + 4000, 10))
-          await cleanCart.clean(cookie,'https://jd.smiek.tk/jdcleancatr_21102717',goodsArr || [ ])
+          await cleanCart.clean(cookie,'https://jd.11111118/jdcleancatr_21102717',goodsArr || [ ])
         }
       }else{
         console.log('如需加购请设置环境变量[guaopencard_addSku54]为"true"');

@@ -32,7 +32,7 @@ All变量适用
 ============Quantumultx===============
 [task_local]
 #11.09~11.17 大牌联合 11.11狂欢购
-47 3 9-17 11 * https://raw.githubusercontent.com/smiek2121/scripts/master/gua_opencard66.js, tag=11.09~11.17 大牌联合 11.11狂欢购, enabled=true
+47 3 9-17 11 * https://raw.githubusercontent.com/11111120/scripts/master/gua_opencard66.js, tag=11.09~11.17 大牌联合 11.11狂欢购, enabled=true
 
 */
 let guaopencard_addSku = "false"
@@ -216,14 +216,14 @@ async function run() {
         flag = true
         let goodsArr = []
         if(cleanCart){
-          goodsArr = await cleanCart.clean(cookie,'https://jd.smiek.tk/jdcleancatr_21102717','')
+          goodsArr = await cleanCart.clean(cookie,'https://jd.11111118/jdcleancatr_21102717','')
           await $.wait(parseInt(Math.random() * 1000 + 4000, 10))
         }
         await takePostRequest('addSku');
         await $.wait(parseInt(Math.random() * 1000 + 5000, 10))
         if(cleanCart && goodsArr !== false){
           // await $.wait(parseInt(Math.random() * 1000 + 4000, 10))
-          await cleanCart.clean(cookie,'https://jd.smiek.tk/jdcleancatr_21102717',goodsArr || [])
+          await cleanCart.clean(cookie,'https://jd.11111118/jdcleancatr_21102717',goodsArr || [])
         }
       }else{
         console.log('如需加购请设置环境变量[guaopencard_addSku66]为"true"');
