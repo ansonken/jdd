@@ -101,9 +101,9 @@ function showMsg() {
 async function signInit() {
   return new Promise(resolve => {
     $.get(taskUrl('speedSignInit', {
-      "activityId": "",
+      "activityId": "8a8fabf3cccb417f8e691b6774938bc2",
       "kernelPlatform": "RN",
-      "inviterId":"U44jAghdpW58FKgfqPdotA=="
+      "inviterId":""
     }), async (err, resp, data) => {
       try {
         if (err) {
@@ -128,7 +128,7 @@ async function sign() {
   return new Promise(resolve => {
     $.get(taskUrl('speedSign', {
         "kernelPlatform": "RN",
-        "activityId": "",
+        "activityId": "8a8fabf3cccb417f8e691b6774938bc2",
         "noWaitPrize": "false"
       }),
       async (err, resp, data) => {
