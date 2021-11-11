@@ -1,7 +1,7 @@
 /*
  飞利浦组队
  入口:
- https://lzdz1-isv.isvjcloud.com/dingzhi/shop/league/activity/6758593?activityId=dz211104100001616201shop&shareUuid=1259ded5bc5a4b2f8a6efac9ad189e77
+ https://lzdz1-isv.isvjcloud.com/dingzhi/shop/league/activity/6758593?activityId=dz211104100001616201shop&shareUuid=befa3df8d4ef47be85fa4e1b3424ff51
  右侧悬浮窗
  
  cookie1 加我的队
@@ -9,17 +9,17 @@
  ============Quantumultx===============
  [task_local]
  #飞利浦组队
- 50 0,12,22 * * * https://raw.githubusercontent.com/444444/JDJB/main/jd_teamFLP.js, tag=飞利浦组队, enabled=true
+ 0 0,13,23 * * * https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_teamFLP.js, tag=飞利浦组队, enabled=true
 
  ================Loon==============
  [Script]
- cron "50 0,12,22 * * *" script-path=https://raw.githubusercontent.com/444444/JDJB/main/jd_teamFLP.js, tag=飞利浦组队
+ cron "0 0,13,23 * * *" script-path=https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_teamFLP.js, tag=飞利浦组队
 
  ===============Surge=================
- 飞利浦组队 = type=cron,cronexp="50 0,12,22 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/444444/JDJB/main/jd_teamFLP.js
+ 飞利浦组队 = type=cron,cronexp="0 0,13,23 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_teamFLP.js
 
  ============小火箭=========
- 飞利浦组队 = type=cron,script-path=https://raw.githubusercontent.com/444444/JDJB/main/jd_teamFLP.js, cronexpr="50 0,12,22 * * *", timeout=3600, enable=true
+ 飞利浦组队 = type=cron,script-path=https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_teamFLP.js, cronexpr="0 0,13,23 * * *", timeout=3600, enable=true
 
 */
 const $ = new Env("飞利浦组队");
@@ -46,13 +46,7 @@ if ($.isNode()) {
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
         return;
     }
-    authorCodeList = await getAuthorCodeList('https://gitee.com/444444521/JD-Scripts/raw/master/shareCodes/flp.json')
-    if(authorCodeList === '404: Not Found'){
-        authorCodeList = [
-            '1259ded5bc5a4b2f8a6efac9ad189e77',
-        ]
-    }
-    console.log(`入口：\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/shop/league/activity/6758593?activityId=dz211104100001616201shop&shareUuid=1259ded5bc5a4b2f8a6efac9ad189e77\n右侧悬浮窗`)
+    console.log(`入口：\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/shop/league/activity/6758593?activityId=dz211104100001616201shop&shareUuid=befa3df8d4ef47be85fa4e1b3424ff51\n右侧悬浮窗`)
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
             cookie = cookiesArr[i]
@@ -73,7 +67,7 @@ if ($.isNode()) {
             }
             
             $.bean = 0;
-            $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
+            $.authorCode = ownCode ? ownCode : "ce7fcdbb5c814bebbdf328ef50ebd222"
             $.authorNum = `${random(1000000, 9999999)}`
             $.activityId = '7dee74f982034f5496a469ecdb4b05f2'
             $.activityShopId = '1000002527'
@@ -108,19 +102,17 @@ async function member_08() {
     await getFirstLZCK()
     await getToken();
     await task('customer/getSimpleActInfoVo', `activityId=${$.activityId}`, 1)
-    await $.wait(2000)
     if ($.token) {
         await getMyPing();
         if ($.secretPin) {
-            console.log("去助力 -> " +$.authorCode);
+            console.log("去助力 -> " +$.authorCode)
+            if($.index==1) $.authorCode = 'efe2fa52a4fb483eb85cee748d070561';
             await task('common/accessLogWithAD', `venderId=${$.activityShopId}&code=99&pin=${encodeURIComponent($.secretPin)}&activityId=${$.activityId}&pageUrl=${$.activityUrl}&subType=app&adSource=null`, 1);
-			await $.wait(2000)
             await task('activityContent', `activityId=${$.activityId}&pin=${encodeURIComponent($.secretPin)}&signUuid=${encodeURIComponent($.authorCode)}`)
             if ($.activityContent) {
                 console.log($.activityContent.canJoin)
                 if ($.activityContent.canJoin) {
                     $.log("加入队伍成功，请等待队长瓜分京豆")
-					await $.wait(2000)
                     await task('saveCandidate', `activityId=${$.activityId}&pin=${encodeURIComponent($.secretPin)}&signUuid=${encodeURIComponent($.authorCode)}&pinImg=${encodeURIComponent(`https://img10.360buyimg.com/imgzone/jfs/t1/21383/2/6633/3879/5c5138d8E0967ccf2/91da57c5e2166005.jpg`)}`)
                     if (!$.activityContent.openCard) {
                         await getShopOpenCardInfo({ "venderId": "1000002527", "channel": 401 }, 1000002527)
@@ -209,29 +201,6 @@ function task(function_id, body, isCommon = 0) {
                 $.log(error)
             } finally {
                 resolve();
-            }
-        })
-    })
-}
-function getAuthorCodeList(url) {
-    return new Promise(resolve => {
-        const options = {
-            url: `${url}?${new Date()}`, "timeout": 10000, headers: {
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-            }
-        };
-        $.get(options, async (err, resp, data) => {
-            try {
-                if (err) {
-                    $.log(err)
-                } else {
-                if (data) data = JSON.parse(data)
-                }
-            } catch (e) {
-                $.logErr(e, resp)
-                data = null;
-            } finally {
-                resolve(data);
             }
         })
     })
