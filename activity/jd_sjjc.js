@@ -1,28 +1,28 @@
 /*
-tgchannel：https://t.me/111111198028
-github：https://github.com/11111119/Private-Script
-boxjs：https://raw.githubusercontent.com/11111119/Private-Script/master/11111119.boxjs.json
+tgchannel：https://t.me/Ariszy8028
+github：https://github.com/Ariszy/Private-Script
+boxjs：https://raw.githubusercontent.com/Ariszy/Private-Script/master/Ariszy.boxjs.json
 
 [task_local]
 #手机竞猜
-0 1,18 * * * https://raw.githubusercontent.com/11111119/Private-Script/master/JD/zy_sjjc.js, tag= 手机竞猜
+0 1,18 * * * https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_sjjc.js, tag= 手机竞猜
 ================Loon==============
 [Script]
-cron "0 1,18 * * *" script-path= https://raw.githubusercontent.com/11111119/Private-Script/master/JD/zy_sjjc.js,tag= 手机竞猜
+cron "0 1,18 * * *" script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_sjjc.js,tag= 手机竞猜
 ===============Surge=================
-手机竞猜 = type=cron,cronexp="0 1,18 * * *",wake-system=1,timeout=3600,script-path= https://raw.githubusercontent.com/11111119/Private-Script/master/JD/zy_sjjc.js
+手机竞猜 = type=cron,cronexp="0 1,18 * * *",wake-system=1,timeout=3600,script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_sjjc.js
 ============小火箭=========
-sjjc = type=cron,script-path= https://raw.githubusercontent.com/11111119/Private-Script/master/JD/zy_sjjc.js, cronexpr="0 1,18 * * *", timeout=3600, enable=true
+sjjc = type=cron,script-path= https://raw.githubusercontent.com/Ariszy/Private-Script/master/JD/zy_sjjc.js, cronexpr="0 1,18 * * *", timeout=3600, enable=true
 */
-const 11111119 = '手机竞猜'
-const $ = Env(11111119)
-const notify = $.isNode() ?require('./sendNotify') : '';
+const Ariszy = '手机竞猜'
+const $ = Env(Ariszy)
+const notify = $.isNode() ?require('../sendNotify') : '';
 cookiesArr = []
 CodeArr = []
 cookie = ''
 var quizId = "",shareId = "",jump = ""
 var brandlistArr = [],shareidArr = []
-const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+const jdCookieNode = $.isNode() ? require('../jdCookie.js') : '';
 cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 let tz = ($.getval('tz') || '1');//0关闭通知，1默认开启
 const invite=1;//新用户自动邀请，0关闭，1默认开启
@@ -299,7 +299,7 @@ async function getlist(){
 async function readShareCodes(){
     return new Promise((resolve) => {
         let url = {
-            url: `https://raw.githubusercontent.com/11111119/TGBOT/main/sjjc.js`,
+            url: `https://raw.githubusercontent.com/Ariszy/TGBOT/main/sjjc.js`,
         }
         $.get(url,async(error, response, data) =>{
             try{
