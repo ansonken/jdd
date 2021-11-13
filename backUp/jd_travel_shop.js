@@ -4,7 +4,7 @@
 ============Quantumultx===============
 [task_local]
 #双11环游记大富翁
-0 2,17 1-11 11 * https://raw.githubusercontent.com/11111115/JDHelp/main/jd_travel_shop.js, tag=双11环游记大富翁, enabled=true
+0 2,17 1-11 11 * https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_travel_shop.js, tag=双11环游记大富翁, enabled=true
 */
 const $ = new Env('双11环游记大富翁');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
