@@ -7,17 +7,17 @@
 ============Quantumultx===============
 [task_local]
 #集萌宝得团圆礼包
-10 6,20 * * * https://raw.githubusercontent.com/11111115/JDHelp/main/jd_jika.js, tag=集萌宝得团圆礼包, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
+10 6,20 * * * https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_jika.js, tag=集萌宝得团圆礼包, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "10 6,20 * * *" script-path=https://raw.githubusercontent.com/11111115/JDHelp/main/jd_jika.js, tag=集萌宝得团圆礼包
+cron "10 6,20 * * *" script-path=https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_jika.js, tag=集萌宝得团圆礼包
 
 ===============Surge=================
-集萌宝得团圆礼包 = type=cron,cronexp="10 6,20 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/11111115/JDHelp/main/jd_jika.js
+集萌宝得团圆礼包 = type=cron,cronexp="10 6,20 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_jika.js
 
 ============小火箭=========
-集萌宝得团圆礼包 = type=cron,script-path=https://raw.githubusercontent.com/11111115/JDHelp/main/jd_jika.js, cronexpr="10 6,20 * * *", timeout=200, enable=true
+集萌宝得团圆礼包 = type=cron,script-path=https://raw.githubusercontent.com/he1pu/JDHelp/main/jd_jika.js, cronexpr="10 6,20 * * *", timeout=200, enable=true
  */
 const $ = new Env('集萌宝得团圆礼包');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -89,7 +89,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
             cookie = cookiesArr[i];
             $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
             $.canHelp = true;
-            console.log(`\n${$.UserName} 去助力【888888】\n`)
+            console.log(`\n${$.UserName} 去助力【zero205】\n`)
             for (let j = 0; j < $.authorCode.length && $.canHelp; j++) {
                 $.item = $.authorCode[j];
                 await doHelp($.item)
@@ -327,7 +327,7 @@ function openCard() {
 function getAuthorShareCode() {
     return new Promise(resolve => {
         $.get({
-            url: "https://raw.fastgit.org/888888/updateTeam/main/shareCodes/jika.json",
+            url: "https://raw.fastgit.org/zero205/updateTeam/main/shareCodes/jika.json",
             headers: {
                 "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
             }
