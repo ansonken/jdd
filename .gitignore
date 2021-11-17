@@ -102,7 +102,8 @@ jd_tw.js
 jingsubang.js
 jd_jxqd_new.js
 jd_vivo.js
-
+jd_code.js
+jd_enc.js
 jd_help.js
 jd_speed_redpocke.js
 jd_jxred.js
@@ -134,7 +135,6 @@ jd_jinggengjcq_*.js
 jd_card_collecting_common_enc.js
 jd_look_video_common_enc.js
 jd_share_common_enc.js
-
 
 
 
